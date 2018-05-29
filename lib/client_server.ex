@@ -44,7 +44,6 @@ defmodule IPC.ClientServer do
         {:noreply, state}
       "leave" ->
         IPC.Storage.edit_subscription(:remove, Map.get(payload, "channel"), state[:id])
-        
         message = %{
           op: "confirmation",
           id: state[:id],
